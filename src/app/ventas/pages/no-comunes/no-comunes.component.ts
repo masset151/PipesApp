@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import {interval} from 'rxjs';
 
 
 export interface Cliente {
@@ -92,5 +93,14 @@ export class NoComunesComponent {
     vuela:false
   },
   ]
+//AsyncPipe
+
+  miObservable = interval(1000);
+
+  valorPromesa = new Promise((resolve,reject)=>{
+    setTimeout(()=> {
+      resolve('tenemos datos de promesa')
+    },3500)
+  });
 
 }
