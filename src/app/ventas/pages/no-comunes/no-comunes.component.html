@@ -7,21 +7,69 @@
     <div class="p-grid">
         <div class="p-col p-md-6 p-sm-9" >
             <p-fieldset legend="118nPluralPipe" [toggleable]="true">
+                <p>
                 Saludos {{nombre}}, es un placer 
                {{ genero |i18nSelect:invitacionMap }}
                 a este evento
+                </p>
+
+                <button pButton type="button" label="Cambiar Cliente" (click)="cambiarCliente()"></button>
+                
+                
             </p-fieldset>
         </div>
        
             <div class="p-col p-md-6 " >
                 <p-fieldset legend="118nSelectPipe" [toggleable]="true">
-                   Actualmente  {{clientes.length | i18nPlural:clientesMap}}
+                    <p>
+                        Actualmente  {{clientes.length | i18nPlural:clientesMap}}
+                    </p>
+
+                    <button button pButton type="button" class="p-button-danger" (click)="borrarCliente()">Borrar Cliente </button>
+                   
                 </p-fieldset>
             
     </div>
 
+    <div class="p-grid">
+        <div class="p-col p-md-6 p-sm-9" >
+            <p-fieldset legend="SlicePipe" [toggleable]="true">
+               <b>Slice 0:2</b>
+               <pre>{{clientes | slice:0:2}}</pre>
+
+
+               <b>Slice 1:2</b>
+               <pre>{{clientes | slice:1:2}}</pre>
+
+                
+                
+                
+            </p-fieldset>
+        </div>
+
+        <div class="p-grid">
+            <div class="p-col p-md-6" >
+                <p-fieldset legend="JsonPipe" [toggleable]="true">
+                        <pre>
+                            {{heroes | json}}
+                        </pre>
+                </p-fieldset>
     
     </div>
+
+        <div class="p-grid">
+            <div class="p-col p-md-6" >
+                <p-fieldset legend="KeyValuePipe" [toggleable]="true">
+                        <ul>
+                            <li *ngFor="let item of persona | keyvalue">
+                                <b>{{item.key |json}}</b>:{{item.value | json}}
+                            </li>
+                        </ul>
+                </p-fieldset>
+    
+    </div>
+
+    
 
     
 
